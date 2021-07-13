@@ -47,7 +47,7 @@ namespace PlanetClegg.Utils.Primes.ConsoleBenchmark
 
                 foreach (var (limit, expected) in runData)
                 {
-                    Console.Write($" -- Calc primes up to {limit,10}, ({expected,9} expected)...");
+                    Console.Write($" - Calc primes up to {limit,10}, ({expected,9} expected)...");
 
                     var startTime = DateTime.Now;
                     var sieve = generator;
@@ -58,7 +58,7 @@ namespace PlanetClegg.Utils.Primes.ConsoleBenchmark
                     var endTime = DateTime.Now;
                     var millis = (endTime - startTime).TotalMilliseconds;
 
-                    Console.WriteLine($" took {millis,9} ms.");
+                    Console.WriteLine($" took {millis,7:0.0} ms.");
 
                 }
             }
