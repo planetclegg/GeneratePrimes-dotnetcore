@@ -10,7 +10,7 @@ namespace PlanetClegg.Utils.Primes
     {
         public PrimeSieve() { }
 
-        public List<int> GeneratePrimesUpTo(int limit)
+        public virtual List<int> GeneratePrimesUpTo(int limit)
         {
             if (limit < 2)
                 return new List<int>();
@@ -49,7 +49,7 @@ namespace PlanetClegg.Utils.Primes
         
         // used for List capacity estimation.  should be same or slightly
         // above the actual # primes up to n
-        public int EstimatePrimeCountUpTo(int n)
+        public virtual int EstimatePrimeCountUpTo(int n)
         {
             // note: the x/ln(x) estimate isn't great for small numbers,
             // so we'll fudge the smallest numbers, and estimates don't
