@@ -22,6 +22,9 @@ that one does bit-twiddling on uints, and the other on ulongs.
 
 The M1 beats my Intel boxes either way, even though it is running in rosetta2 (!!!)
 
+NOTE: I'm seeing evidence that CLR JITing and/or the OS scheduler is skewing these
+tests a bit.  Needs a better benchmark runner to get more consistent results.
+
 ### Various console test runs, compiled as 'Release' build, run in VS for Mac.
 #### Mac Mini M1 (Macmini9,1)
 ```
@@ -56,32 +59,42 @@ Using generator 'Optimized64PrimeSieve':
  - Calc primes up to 2147483647, (105097565 expected)... took  7643.6 ms.
 ```
 
-#### MBP 2015
+#### MBP 2015 (MacBookPro11,5)
 ```
 CPU info: Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz
-Testing 2 prime number generator, with 7 tests.
+Testing 4 prime number generator, with 7 tests.
 
 Using generator 'PrimeSieve':
- - Calc primes up to      10000, (     1229 expected)... took    16.7 ms.
- - Calc primes up to     100000, (     9592 expected)... took     0.3 ms.
- - Calc primes up to    1000000, (    78498 expected)... took     3.1 ms.
- - Calc primes up to   10000000, (   664579 expected)... took    31.1 ms.
- - Calc primes up to  100000000, (  5761455 expected)... took   335.9 ms.
- - Calc primes up to 1000000000, ( 50847534 expected)... took  3915.4 ms.
- - Calc primes up to 2147483647, (105097565 expected)... took 10090.4 ms.
+ - Calc primes up to      10000, (     1229 expected)... took    17.6 ms.
+ - Calc primes up to     100000, (     9592 expected)... took     0.4 ms.
+ - Calc primes up to    1000000, (    78498 expected)... took     3.4 ms.
+ - Calc primes up to   10000000, (   664579 expected)... took    31.6 ms.
+ - Calc primes up to  100000000, (  5761455 expected)... took   343.1 ms.
+ - Calc primes up to 1000000000, ( 50847534 expected)... took  3968.7 ms.
+ - Calc primes up to 2147483647, (105097565 expected)... took 10173.5 ms.
 
 Using generator 'OptimizedPrimeSieve':
+ - Calc primes up to      10000, (     1229 expected)... took     1.1 ms.
+ - Calc primes up to     100000, (     9592 expected)... took     0.2 ms.
+ - Calc primes up to    1000000, (    78498 expected)... took    49.4 ms.
+ - Calc primes up to   10000000, (   664579 expected)... took    23.0 ms.
+ - Calc primes up to  100000000, (  5761455 expected)... took   255.4 ms.
+ - Calc primes up to 1000000000, ( 50847534 expected)... took  3233.0 ms.
+ - Calc primes up to 2147483647, (105097565 expected)... took  8531.2 ms.
+
+Using generator 'Optimized64PrimeSieve':
  - Calc primes up to      10000, (     1229 expected)... took     1.0 ms.
- - Calc primes up to     100000, (     9592 expected)... took     0.3 ms.
- - Calc primes up to    1000000, (    78498 expected)... took    50.7 ms.
- - Calc primes up to   10000000, (   664579 expected)... took    26.2 ms.
- - Calc primes up to  100000000, (  5761455 expected)... took   286.4 ms.
- - Calc primes up to 1000000000, ( 50847534 expected)... took  3487.4 ms.
- - Calc primes up to 2147483647, (105097565 expected)... took  9085.8 ms.
+ - Calc primes up to     100000, (     9592 expected)... took     0.2 ms.
+ - Calc primes up to    1000000, (    78498 expected)... took    50.4 ms.
+ - Calc primes up to   10000000, (   664579 expected)... took    21.8 ms.
+ - Calc primes up to  100000000, (  5761455 expected)... took   234.0 ms.
+ - Calc primes up to 1000000000, ( 50847534 expected)... took  3039.1 ms.
+ - Calc primes up to 2147483647, (105097565 expected)... took  8102.3 ms.
+Finished.
 ```
 #### MBP 2013 (MacBookPro10,1)
 ```
-PU info: Intel(R) Core(TM) i7-3840QM CPU @ 2.80GHz
+CPU info: Intel(R) Core(TM) i7-3840QM CPU @ 2.80GHz
 Testing 3 prime number generators, with 7 tests.
 
 Using generator 'PrimeSieve':
