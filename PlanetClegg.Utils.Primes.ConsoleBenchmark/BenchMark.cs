@@ -38,7 +38,7 @@ namespace PlanetClegg.Utils.Primes.ConsoleBenchmark
                 new Optimized64PrimeSieve(),
             };
 
-            Console.WriteLine($"Testing {generators.Length} prime number generator," +
+            Console.WriteLine($"Testing {generators.Length} prime number generators," +
                               $" with {runData.Length} tests.");
                 
             foreach (var generator in generators)
