@@ -33,7 +33,7 @@ namespace PlanetClegg.Utils.Primes.ConsoleBenchmark
 
 
             IPrimeGenerator[] generators = new IPrimeGenerator[] {
-                //new PrimeSieve(),
+                new PrimeSieve(),
                 new OptimizedPrimeSieve(),
                 new Optimized64PrimeSieve(),
             };
