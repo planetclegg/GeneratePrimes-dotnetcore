@@ -17,7 +17,6 @@ namespace PlanetClegg.Utils.Primes
 
             uint ulimit = (uint)limit;
 
-            //optimize: play around with inlining and alternatives to BitArray
             var bits = new BitArray(1+(limit/2), true);
             var sqrt = (uint)System.Math.Sqrt(ulimit);
             
@@ -30,8 +29,6 @@ namespace PlanetClegg.Utils.Primes
                         bits.Set((int)(i / 2), false);
                     }
                 }
-                //if (factor == 7)
-                //    for (var q = 0; q < 256; q++) { Console.Write(bits.Get(q) ? "1" : "0"); }
             }
 
             int capacity = EstimatePrimeCountUpTo(limit);
