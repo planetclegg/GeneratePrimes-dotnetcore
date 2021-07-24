@@ -25,6 +25,9 @@ The M1 beats my Intel boxes either way, even though it is running in rosetta2 (!
 ### Various console test runs, compiled as 'Release' build, run in VS for Mac.
 #### Mac Mini M1 (Macmini9,1)
 ```
+CPU info: Apple M1
+Testing 3 prime number generators, with 7 tests.
+
 Using generator 'PrimeSieve':
  - Calc primes up to      10000, (     1229 expected)... took     2.7 ms.
  - Calc primes up to     100000, (     9592 expected)... took     0.5 ms.
@@ -78,24 +81,33 @@ Using generator 'OptimizedPrimeSieve':
 ```
 #### MBP 2013 (MacBookPro10,1)
 ```
-CPU info: Intel(R) Core(TM) i7-3840QM CPU @ 2.80GHz
-Testing 2 prime number generator, with 7 tests.
+PU info: Intel(R) Core(TM) i7-3840QM CPU @ 2.80GHz
+Testing 3 prime number generators, with 7 tests.
 
 Using generator 'PrimeSieve':
- - Calc primes up to      10000, (     1229 expected)... took    18.9 ms.
- - Calc primes up to     100000, (     9592 expected)... took     0.4 ms.
- - Calc primes up to    1000000, (    78498 expected)... took     3.1 ms.
- - Calc primes up to   10000000, (   664579 expected)... took    33.2 ms.
- - Calc primes up to  100000000, (  5761455 expected)... took   380.9 ms.
- - Calc primes up to 1000000000, ( 50847534 expected)... took  5751.9 ms.
- - Calc primes up to 2147483647, (105097565 expected)... took 12854.7 ms.
+ - Calc primes up to      10000, (     1229 expected)... took     0.0 ms.
+ - Calc primes up to     100000, (     9592 expected)... took     0.3 ms.
+ - Calc primes up to    1000000, (    78498 expected)... took     4.4 ms.
+ - Calc primes up to   10000000, (   664579 expected)... took    35.1 ms.
+ - Calc primes up to  100000000, (  5761455 expected)... took   311.3 ms.
+ - Calc primes up to 1000000000, ( 50847534 expected)... took  5105.6 ms.
+ - Calc primes up to 2147483647, (105097565 expected)... took 11579.2 ms.
 
 Using generator 'OptimizedPrimeSieve':
- - Calc primes up to      10000, (     1229 expected)... took     1.1 ms.
+ - Calc primes up to      10000, (     1229 expected)... took     1.7 ms.
  - Calc primes up to     100000, (     9592 expected)... took     0.3 ms.
- - Calc primes up to    1000000, (    78498 expected)... took    62.8 ms.
- - Calc primes up to   10000000, (   664579 expected)... took    28.8 ms.
- - Calc primes up to  100000000, (  5761455 expected)... took   335.2 ms.
- - Calc primes up to 1000000000, ( 50847534 expected)... took  5030.7 ms.
- - Calc primes up to 2147483647, (105097565 expected)... took 11390.5 ms.
+ - Calc primes up to    1000000, (    78498 expected)... took     2.3 ms.
+ - Calc primes up to   10000000, (   664579 expected)... took    22.5 ms.
+ - Calc primes up to  100000000, (  5761455 expected)... took   248.3 ms.
+ - Calc primes up to 1000000000, ( 50847534 expected)... took  4258.3 ms.
+ - Calc primes up to 2147483647, (105097565 expected)... took  9740.0 ms.
+
+Using generator 'Optimized64PrimeSieve':
+ - Calc primes up to      10000, (     1229 expected)... took     1.5 ms.
+ - Calc primes up to     100000, (     9592 expected)... took     0.2 ms.
+ - Calc primes up to    1000000, (    78498 expected)... took    26.8 ms.
+ - Calc primes up to   10000000, (   664579 expected)... took    26.1 ms.
+ - Calc primes up to  100000000, (  5761455 expected)... took   242.6 ms.
+ - Calc primes up to 1000000000, ( 50847534 expected)... took  4056.5 ms.
+ - Calc primes up to 2147483647, (105097565 expected)... took  9363.3 ms.
 ```
