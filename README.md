@@ -62,7 +62,7 @@ Using generator 'Optimized64PrimeSieve':
 #### MBP 2015 (MacBookPro11,5)
 ```
 CPU info: Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz
-Testing 4 prime number generator, with 7 tests.
+Testing 3 prime number generators, with 7 tests.
 
 Using generator 'PrimeSieve':
  - Calc primes up to      10000, (     1229 expected)... took    17.6 ms.
