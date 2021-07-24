@@ -90,7 +90,6 @@ Using generator 'Optimized64PrimeSieve':
  - Calc primes up to  100000000, (  5761455 expected)... took   234.0 ms.
  - Calc primes up to 1000000000, ( 50847534 expected)... took  3039.1 ms.
  - Calc primes up to 2147483647, (105097565 expected)... took  8102.3 ms.
-Finished.
 ```
 #### MBP 2013 (MacBookPro10,1)
 ```
