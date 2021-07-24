@@ -32,9 +32,10 @@ namespace PlanetClegg.Utils.Primes.ConsoleBenchmark
             };
 
 
-            IPrimeGenerator[] generators = new[] {
-                new PrimeSieve(),
+            IPrimeGenerator[] generators = new IPrimeGenerator[] {
+                //new PrimeSieve(),
                 new OptimizedPrimeSieve(),
+                new Optimized64PrimeSieve(),
             };
 
             Console.WriteLine($"Testing {generators.Length} prime number generator," +

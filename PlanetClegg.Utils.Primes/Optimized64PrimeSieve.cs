@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace PlanetClegg.Utils.Primes
 {
-    public class OptimizedPrimeSieve : PrimeSieve
+    public class Optimized64PrimeSieve : PrimeSieve
     {
-        public OptimizedPrimeSieve() { }
+        public Optimized64PrimeSieve() { }
 
         public override List<int> GeneratePrimesUpTo(int limit)
         {
@@ -18,22 +18,22 @@ namespace PlanetClegg.Utils.Primes
 
             //playing around with inlining and alternatives to BitArray
             // var bits = new BitArray(1+(limit/2), true);
-            uint[] bits = new uint[((limit / 2) + 32) / 32];
+            ulong[] bits = new ulong[((limit / 2) + 64) / 64];
 
-            // we're just going to repeat this 30 bit pattern over and over
+            // we're just going to repeat this 60 bit pattern over and over
             // to mark the multiples of 3s and 5s in a more efficient way
-            uint wheel = 0b011010010010110; //15 bit seed
+            ulong wheel = 0b011010010010110;  // 15 bit seed, odd numbes up to 30
             // repeat 15 bit seed to make 60 bits
-            wheel |= wheel << 15;
+            wheel = wheel | wheel << 15 | wheel << 30 | wheel << 45;
 
             for (int i =0; i < bits.Length; i++)
             {
-                // set first 30 bits, then repeat cycle for remaining 2
-                bits[i] = (wheel << 30 | wheel);
-                // rotate wheel right by 2 bits. top 2 bits stay 0
-                wheel = (wheel >> 2) | ((wheel & 3) << 28);
+                // set first 60 bits, then repeat cycle for remaining 4
+                bits[i] = (wheel << 60 | wheel);
+                // rotate 60-bit wheel right by 4 bits. top 4 out of 64 bits stay 0
+                wheel = (wheel >> 4) | ((wheel & 0b1111) << 56);
             }
-            bits[0] &= ~0b110u; // manually mark 3,5, because the wheel doesnt
+            bits[0] &= ~0b110UL; // manually mark 3,5, because the wheel doesnt
 
             var sqrt = (uint)System.Math.Sqrt(ulimit);
             var sqrtDiv2 = (int)sqrt / 2;
@@ -41,12 +41,12 @@ namespace PlanetClegg.Utils.Primes
             // for factorDiv2 1->3, 2->5, 3->7, etc since even numbers are not tracked
             for (int factorDiv2 = 3; factorDiv2 <= sqrtDiv2; factorDiv2 += 1)
             {
-                if ((bits[factorDiv2 >> 5] & (1 << factorDiv2)) == 0)
+                if ((bits[factorDiv2 >> 6] & (1UL << factorDiv2)) == 0)
                 {
                     int factor = 1 + (factorDiv2 * 2);
                     for (int i = (factor * factor)/2; i <= ulimitDiv2; i += factor)
                     {
-                        bits[(i >> 5)] |= (1u << i);
+                        bits[(i >> 6)] |= (1UL << i);
                     }
                 }
             }
@@ -57,12 +57,12 @@ namespace PlanetClegg.Utils.Primes
             for (uint i = 3; i <= ulimit; i += 2)
             {
                 int idx = (int)(i / 2);
-                if ((bits[idx >> 5] & (1 << idx)) == 0)
+                if ((bits[idx >> 6] & (1UL << idx)) == 0)
                 {
                     result.Add((int)i);
                 }
             }
-
+           
             return result;
         }
 

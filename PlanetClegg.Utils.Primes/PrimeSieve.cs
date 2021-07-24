@@ -30,6 +30,8 @@ namespace PlanetClegg.Utils.Primes
                         bits.Set((int)(i / 2), false);
                     }
                 }
+                //if (factor == 7)
+                //    for (var q = 0; q < 256; q++) { Console.Write(bits.Get(q) ? "1" : "0"); }
             }
 
             int capacity = EstimatePrimeCountUpTo(limit);

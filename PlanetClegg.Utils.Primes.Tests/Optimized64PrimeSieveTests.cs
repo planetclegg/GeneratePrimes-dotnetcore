@@ -7,11 +7,12 @@ using Xunit.Abstractions;
 
 namespace PlanetClegg.Utils.Primes.Tests
 {
-    public class PrimeSieveTests : GenericPrimeSieveTests<PrimeSieve>
+    public class Optimized64PrimeSieveTests : GenericPrimeSieveTests<Optimized64PrimeSieve>
     {
-        public PrimeSieveTests(ITestOutputHelper output) : base(output)
+        public Optimized64PrimeSieveTests(ITestOutputHelper output) : base(output)
         {
-
+           
         }
+
     }
 }
